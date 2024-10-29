@@ -1,0 +1,149 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#gift-box {
+    width: 250px;
+    cursor: pointer;
+    animation: none; /* Initially no animation */
+}
+
+h1 {
+    color: red;
+    font-size: 3em;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    border-right: 0.1em solid red;
+    animation: blink-caret 0.75s step-end infinite;
+     /* Glow effect */
+     text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 
+     0 0 10px rgba(255, 0, 0, 0.5), 
+     0 0 15px rgba(255, 0, 0, 0.3);
+animation: glow 2s infinite alternate; /* Apply glow animation */
+
+}
+
+#bounce-image {
+    width: 150px; /* Set width for the image */
+    position: absolute; /* Positioning for animation */
+    top: calc(50% - 150px); /* Adjust the top position */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    animation: bounce 2s infinite; /* Apply bounce animation */
+}
+
+.ballon {
+    position: absolute;
+    bottom: 0; /* Start at the bottom of the screen */
+    width: 200px; /* Adjust width as needed */
+    opacity: 0.8; /* Slight transparency */
+    transition: transform 5s linear, opacity 5s linear; /* Smooth transition for upward movement */
+    max-width: 10vw;
+    left: calc((100vw - 50px) * var(--random)); /* Positioning balloons within the screen */
+
+}
+
+#click {
+    position: absolute; /* Position it at the top */
+    top: 20px; /* Space from the top */
+    white-space: nowrap; /* Prevent text from wrapping */
+    font-size: 30px; /* Font size for the scrolling text */
+    color: red; /* Text color */
+    text-shadow: 0 0 10px red; /* Glow effect */
+    animation: glow 2s infinite alternate; /* Apply glow animation */
+}
+
+#cake {
+    width: 150px; /* Set width for the image */
+    position: absolute; /* Positioning for animation */
+    top: calc(90% - 150px); /* Adjust the top position */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    
+}
+
+#plosc {
+    width: 150px; /* Set width for the image */
+    position: absolute; /* Positioning for animation */
+    top: calc(125% - 200px); /* Adjust the top position */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    bottom: 50px;
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0); /* Start and end at original position */
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-20px); /* Move up */
+    }
+}
+
+
+@keyframes glow {
+0% {
+text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 
+         0 0 10px rgba(255, 0, 0, 0.5), 
+         0 0 15px rgba(255, 0, 0, 0.3);
+}
+50% {
+text-shadow: 0 0 20px rgba(255, 0, 0, 1), 
+         0 0 30px rgba(255, 0, 0, 0.7), 
+         0 0 40px rgba(255, 0, 0, 0.5);
+}
+100% {
+text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 
+         0 0 10px rgba(255, 0, 0, 0.5), 
+         0 0 15px rgba(255, 0, 0, 0.3);
+}
+}
+    
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: red; }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 5vw; /* Adjust font size for smaller screens */
+    }
+}
+
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 5vw; /* Responsive font size for mobile */
+        white-space: normal; /* Allow text to wrap on mobile */
+        max-width: 90%; /* Prevent overflow on mobile */
+    }
+}
+
+@media (max-width: 600px) {
+    .ballon {
+        max-width: 10vw; /* Adjust the max-width for smaller screens */
+        width: 100px; /* Allow the width to adjust */
+    }
+}
